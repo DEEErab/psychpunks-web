@@ -14,13 +14,13 @@ function App() {
   const { activate } = useWeb3React();
 
   // connect web3 wallet
-  async function connect() {
+  const connect = async () => {
     try {
       await activate(injected);
     } catch (e) {
       console.log(e);
     }
-  }
+  };
 
   // disconnect web3 wallet
   // async function disconnect() {
