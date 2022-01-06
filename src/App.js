@@ -1,127 +1,84 @@
-import "./App.css";
-import React from "react";
-import { ethers } from "ethers";
-import { useEffect, useState } from "react";
-import { injected } from "./components/wallet/connectors";
-import { useWeb3React } from "@web3-react/core";
-import contract from "./contracts/psychpunks.json";
-
-const contractAddress = "0xab89D55822768F9eA1A6FFbe3f0eE10D676cA752"; // rinkby testnet address
-const abi = contract.abi; // rinkeby testnet abi
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { connect } from "./redux/blockchain/blockchainActions";
+import { fetchData } from "./redux/data/dataActions";
 
 function App() {
-  const [currentAccount, setCurrentAccount] = useState(null);
-  const { activate } = useWeb3React();
+  const dispatch = useDispatch();
+  const blockchain = useSelector((state) => state.blockchain);
+  const data = useSelector((state) => state.data);
+  const [feedback, setFeedback] = useState(
+    "🢃🢃 Please input how many PsychPunks 🢃🢃 you would like to mint."
+  );
+  const [claimingNft, setClaimingNft] = useState(false);
+  const [inputValue, setInputValue] = useState("");
 
-  // connect web3 wallet
-  const connect = async () => {
-    try {
-      await activate(injected);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  // disconnect web3 wallet
-  // async function disconnect() {
-  //   try {
-  //     deactivate();
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // }
-
-  // checks if wallet is connected
-  const checkIfWalletIsConnected = async () => {
-    const { ethereum } = window;
-
-    if (!ethereum) {
-      console.log("Make sure you have Metamask installed!");
+  const claimNFTs = (_amount) => {
+    if (_amount <= 0) {
       return;
-    } else {
-      console.log("Wallet exists! We're ready to go!");
     }
-
-    // gets the accounts
-    const accounts = await ethereum.request({ method: "eth_accounts" });
-
-    // if a account has been connected previouslly if will auto connect to that account
-    // this is given as a list. If no accounts have been connected the list will be empyty
-    // if the list is empty it will connect to the first account sent by metamask.
-    if (accounts.length !== 0) {
-      const account = accounts[0];
-      console.log("Found an authorized account:", account);
-      setCurrentAccount(account);
-    } else {
-      console.log("No authorized accounts.");
-    }
-  };
-
-  const mintNft = async () => {
-    try {
-      const { ethereum } = window;
-
-      if (ethereum) {
-        const provider = new ethers.providers.Web3Provider(ethereum);
-        const signer = provider.getSigner();
-        const nftContract = new ethers.Contract(contractAddress, abi, signer);
-
-        console.log("Initialize payment");
-        let nftTxn = await nftContract.mint(1, {
-          value: ethers.utils.parseEther("0.01"),
-        });
-
-        console.log("Minting... please wait");
-        await nftTxn.wait();
-
-        console.log(
-          `Minted, see transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`
+    setFeedback("Minting your PsychPunk...");
+    setClaimingNft(true);
+    blockchain.smartContract.methods
+      .mint(blockchain.account, _amount)
+      .send({
+        gasLimit: "285000",
+        from: blockchain.account,
+        value: blockchain.web3.utils.toWei(
+          (0.042 * _amount).toString(),
+          "ether"
+        ),
+      })
+      .once("error", (err) => {
+        console.log(err);
+        setFeedback("Sorry, something went wrong please try again later.");
+        setClaimingNft(false);
+      })
+      .then((receipt) => {
+        setFeedback(
+          "WOW, you now own a PsychPunk. go visit Opensea.io to view it."
         );
-      } else {
-        console.log("Ethereum object does not exist");
-      }
-    } catch (err) {
-      console.log(err);
-    }
+        setClaimingNft(false);
+        dispatch(fetchData(blockchain.account));
+      });
   };
 
-  // move to commponents
-  const connectWalletButton = () => {
-    return (
-      <button onClick={connect} className="cta-button connect-wallet-button">
-        Connect Wallet
-      </button>
-    );
-  };
-  // move to components
-  const mintNftButton = () => {
-    return (
-      <button onClick={mintNft} className="cta-button mint-nft-button">
-        Mint NFT
-      </button>
-    );
+  const getData = () => {
+    if (blockchain.account !== "" && blockchain.smartContract !== null) {
+      dispatch(fetchData(blockchain.account));
+    }
   };
 
   useEffect(() => {
-    checkIfWalletIsConnected();
-  }, []);
+    getData();
+  }, [blockchain.account]);
 
   return (
-    <div className="main-app">
-      <h1>test</h1>
-      <div>{currentAccount ? mintNftButton() : connectWalletButton()}</div>
-
-      {/* <div>
-        <button onClick={connect}>Connect to metamask</button>
-        {active ? (
-          <span>
-            Connected with <b>{account}</b>
-          </span>
-        ) : (
-          <span>not connected</span>
-        )}
-        <button onClick={disconnect}>disconnect</button>
-      </div> */}
+    <div>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          dispatch(connect());
+          getData();
+        }}
+      >
+        Connect
+      </button>
+      <button
+        disabled={claimingNft ? 1 : 0}
+        onClick={(e) => {
+          e.preventDefault();
+          claimNFTs(inputValue);
+          getData();
+        }}
+      >
+        {claimingNft ? "BUSY" : "MINT"}
+      </button>
+      <input
+        style={{ width: "50px" }}
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
     </div>
   );
 }

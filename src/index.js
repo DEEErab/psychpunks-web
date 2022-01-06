@@ -1,21 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { Web3ReactProvider } from "@web3-react/core";
-import { Web3Provider } from "@ethersproject/providers";
-
-function getLibrary(provider, connector) {
-  return new Web3Provider(provider);
-}
+import store from "./redux/store";
+import { Provider } from "react-redux";
+import "./styles/reset.css";
+import "./styles/theme.css";
 
 ReactDOM.render(
-  <Web3ReactProvider getLibrary={getLibrary}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Web3ReactProvider>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById("root")
 );
 
