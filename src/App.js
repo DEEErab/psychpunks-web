@@ -7,11 +7,11 @@ import { useWeb3React } from "@web3-react/core";
 import contract from "./contracts/psychpunks.json";
 
 const contractAddress = "0xab89D55822768F9eA1A6FFbe3f0eE10D676cA752"; // rinkby testnet address
-const abi = contract.abi; // rinkeby testnet abi
+const abi = contract.abi;
 
 function App() {
   const [currentAccount, setCurrentAccount] = useState(null);
-  const { activate } = useWeb3React();
+  const { activate, deactivate, active, account } = useWeb3React();
 
   // connect web3 wallet
   const connect = async () => {
@@ -23,13 +23,13 @@ function App() {
   };
 
   // disconnect web3 wallet
-  // async function disconnect() {
-  //   try {
-  //     deactivate();
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // }
+  const disconnect = async () => {
+    try {
+      deactivate();
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   // checks if wallet is connected
   const checkIfWalletIsConnected = async () => {
@@ -67,8 +67,8 @@ function App() {
         const nftContract = new ethers.Contract(contractAddress, abi, signer);
 
         console.log("Initialize payment");
-        let nftTxn = await nftContract.mint(1, {
-          value: ethers.utils.parseEther("0.01"),
+        let nftTxn = await nftContract.mint(account, 1, {
+          value: ethers.utils.parseEther("0.042"),
         });
 
         console.log("Minting... please wait");
@@ -85,34 +85,16 @@ function App() {
     }
   };
 
-  // move to commponents
-  const connectWalletButton = () => {
-    return (
-      <button onClick={connect} className="cta-button connect-wallet-button">
-        Connect Wallet
-      </button>
-    );
-  };
-  // move to components
-  const mintNftButton = () => {
-    return (
-      <button onClick={mintNft} className="cta-button mint-nft-button">
-        Mint NFT
-      </button>
-    );
-  };
-
   useEffect(() => {
     checkIfWalletIsConnected();
   }, []);
 
   return (
-    <div className="main-app">
-      <h1>test</h1>
-      <div>{currentAccount ? mintNftButton() : connectWalletButton()}</div>
+    <div>
+      <h1>Psych Punks</h1>
 
-      {/* <div>
-        <button onClick={connect}>Connect to metamask</button>
+      <div>
+        <button onClick={connect}>Connect</button>
         {active ? (
           <span>
             Connected with <b>{account}</b>
@@ -120,8 +102,13 @@ function App() {
         ) : (
           <span>not connected</span>
         )}
-        <button onClick={disconnect}>disconnect</button>
-      </div> */}
+        <div>
+          <button onClick={disconnect}>disconnect</button>
+        </div>
+        <div>
+          <button onClick={mintNft}>Mint</button>
+        </div>
+      </div>
     </div>
   );
 }
