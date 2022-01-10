@@ -1,10 +1,12 @@
 import "./App.css";
 import React from "react";
-import { ethers } from "ethers";
+import { BrowserRouter as Router } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { injected } from "./components/wallet/connectors";
-import { useWeb3React } from "@web3-react/core";
 import contract from "./contracts/psychpunks.json";
+import { injected } from "./components/Wallet/connectors";
+import { useWeb3React } from "@web3-react/core";
+import { ethers } from "ethers";
+import Navbar from "./components/Navbar";
 
 const contractAddress = "0xab89D55822768F9eA1A6FFbe3f0eE10D676cA752"; // rinkby testnet address
 const abi = contract.abi;
@@ -90,26 +92,9 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <h1>Psych Punks</h1>
-
-      <div>
-        <button onClick={connect}>Connect</button>
-        {active ? (
-          <span>
-            Connected with <b>{account}</b>
-          </span>
-        ) : (
-          <span>not connected</span>
-        )}
-        <div>
-          <button onClick={disconnect}>disconnect</button>
-        </div>
-        <div>
-          <button onClick={mintNft}>Mint</button>
-        </div>
-      </div>
-    </div>
+    <Router>
+      <Navbar />
+    </Router>
   );
 }
 
