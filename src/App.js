@@ -6,7 +6,7 @@ import contract from "./contracts/psychpunks.json";
 import { injected } from "./components/Wallet/connectors";
 import { useWeb3React } from "@web3-react/core";
 import { ethers } from "ethers";
-import Navbar from "./components/Navbar";
+import Home from "./pages";
 
 const contractAddress = "0xab89D55822768F9eA1A6FFbe3f0eE10D676cA752"; // rinkby testnet address
 const abi = contract.abi;
@@ -93,7 +93,7 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
+      <Home />
     </Router>
   );
 }
