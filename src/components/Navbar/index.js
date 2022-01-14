@@ -15,7 +15,7 @@ import { useWeb3React } from "@web3-react/core";
 import { injected } from "../Wallet/connectors";
 
 export const Navbar = ({ toggle }) => {
-  const { activate, deactivate } = useWeb3React();
+  const { active, activate, deactivate } = useWeb3React();
 
   // connect web3 wallet
   const connect = async () => {
@@ -55,7 +55,9 @@ export const Navbar = ({ toggle }) => {
             </NavItem>
           </NavMenu>
           <NavBtn>
-            <NavBtnLink onClick={connect}>Connect</NavBtnLink>
+            <NavBtnLink onClick={connect}>
+              {active ? <span>Connected</span> : <span>Connect</span>}
+            </NavBtnLink>
           </NavBtn>
         </NavbarContainer>
       </Nav>

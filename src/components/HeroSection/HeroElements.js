@@ -122,3 +122,18 @@ export const Button = styled.button`
     background: ${({ primary }) => (primary ? "purple" : "black")};
   }
 `;
+
+export const Input = styled.input`
+  border-radius: 50px;
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  margin-top: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+`;
