@@ -9,8 +9,30 @@ import {
   SideBtnWrap,
   SidebarRoute,
 } from "./SidebarElements";
+import { useWeb3React } from "@web3-react/core";
+import { injected } from "../Wallet/connectors";
 
 const Sidebar = ({ isOpen, toggle }) => {
+  const { activate, deactivate } = useWeb3React();
+
+  // connect web3 wallet
+  const connect = async () => {
+    try {
+      await activate(injected);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  // disconnect web3 wallet
+  const disconnect = async () => {
+    try {
+      deactivate();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <SidebarContainer isOpen={isOpen} onClick={toggle}>
       <Icon onClick={toggle}>
@@ -18,9 +40,6 @@ const Sidebar = ({ isOpen, toggle }) => {
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
-          <SidebarLink to="mint" onClick={toggle}>
-            Mint
-          </SidebarLink>
           <SidebarLink to="about" onClick={toggle}>
             About
           </SidebarLink>
@@ -32,9 +51,7 @@ const Sidebar = ({ isOpen, toggle }) => {
           </SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
-          <SidebarRoute to="/connect" onClick={toggle}>
-            Connect
-          </SidebarRoute>
+          <SidebarRoute onClick={connect}>Connect</SidebarRoute>
         </SideBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>

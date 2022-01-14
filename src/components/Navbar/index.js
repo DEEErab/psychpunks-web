@@ -11,8 +11,30 @@ import {
   NavBtn,
   NavBtnLink,
 } from "./NavbarElements";
+import { useWeb3React } from "@web3-react/core";
+import { injected } from "../Wallet/connectors";
 
 export const Navbar = ({ toggle }) => {
+  const { activate, deactivate } = useWeb3React();
+
+  // connect web3 wallet
+  const connect = async () => {
+    try {
+      await activate(injected);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  // disconnect web3 wallet
+  const disconnect = async () => {
+    try {
+      deactivate();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <>
       <Nav>
@@ -22,9 +44,6 @@ export const Navbar = ({ toggle }) => {
             <FaBars />
           </MobileIcon>
           <NavMenu>
-            <NavItem>
-              <NavLinks to="mint">Mint</NavLinks>
-            </NavItem>
             <NavItem>
               <NavLinks to="about">About</NavLinks>
             </NavItem>
@@ -36,7 +55,7 @@ export const Navbar = ({ toggle }) => {
             </NavItem>
           </NavMenu>
           <NavBtn>
-            <NavBtnLink to="/connect">Connect</NavBtnLink>
+            <NavBtnLink onClick={connect}>Connect</NavBtnLink>
           </NavBtn>
         </NavbarContainer>
       </Nav>
