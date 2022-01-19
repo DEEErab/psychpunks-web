@@ -37,9 +37,6 @@ const Sidebar = ({ isOpen, toggle }) => {
           <SidebarLink to="team" onClick={toggle}>
             Team
           </SidebarLink>
-          <SidebarLink to="contact" onClick={toggle}>
-            Contact
-          </SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
           <SidebarRoute onClick={connect}>

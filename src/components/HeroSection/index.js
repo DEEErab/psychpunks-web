@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import contract from "../../contracts/psychpunks.json";
-import Video from "../../videos/video.mp4";
+import img from "../../images/bg.png";
 import {
   HeroContainer,
   HeroBg,
@@ -77,7 +77,7 @@ const HeroSection = () => {
   return (
     <HeroContainer>
       <HeroBg>
-        <VideoBg autoPlay loop muted src={Video} type="video/mp4" />
+        <VideoBg autoPlay loop muted src={img} type="img" />
       </HeroBg>
       <HeroContent>
         <HeroH1>PsychPunks</HeroH1>

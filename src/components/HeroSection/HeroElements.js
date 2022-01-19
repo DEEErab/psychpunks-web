@@ -2,12 +2,10 @@ import styled from "styled-components";
 import { MdKeyboardArrowRight, MdArrowForward } from "react-icons/md";
 
 export const HeroContainer = styled.div`
-  background: gray;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 30px;
-  height: 800px;
+  height: 1000px;
   position: relative;
   z-index: 1;
 
@@ -37,7 +35,7 @@ export const HeroBg = styled.div`
   overflow: hidden;
 `;
 
-export const VideoBg = styled.video`
+export const VideoBg = styled.img`
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -103,12 +101,12 @@ export const ArrowRight = styled(MdKeyboardArrowRight)`
 `;
 
 export const Button = styled.button`
-  border-radius: 50px;
-  background: ${({ primary }) => (primary ? "black" : "white")};
+  border-radius: 10px;
+  background: black;
   white-space: nowrap;
-  padding: ${({ big }) => (big ? "14 px 48px" : "12px 30px")};
-  color: ${({ dark }) => (dark ? "white" : "black")};
-  font-size: ${({ FontBig }) => (FontBig ? "20px" : "16px")};
+  padding: 12px 30px;
+  color: white;
+  font-size: 16px;
   outline: none;
   border: none;
   cursor: pointer;
@@ -119,12 +117,12 @@ export const Button = styled.button`
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: ${({ primary }) => (primary ? "purple" : "black")};
+    background: purple;
   }
 `;
 
 export const Input = styled.input`
-  border-radius: 50px;
+  border-radius: 10px;
   width: 50px;
   height: 30px;
   text-align: center;

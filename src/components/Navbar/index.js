@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
+import { animateScroll as scroll } from "react-scroll";
 import {
   Nav,
   NavbarContainer,
@@ -15,7 +16,8 @@ import { useWeb3React } from "@web3-react/core";
 import { injected } from "../Wallet/connectors";
 
 export const Navbar = ({ toggle }) => {
-  const { active, activate, deactivate } = useWeb3React();
+  const { active, activate, deactivate, account } = useWeb3React();
+  const [scrollNav, setScrollNav] = useState(false);
 
   // connect web3 wallet
   const connect = async () => {
@@ -35,28 +37,89 @@ export const Navbar = ({ toggle }) => {
     }
   };
 
+  const changeNav = () => {
+    if (window.scrollY >= 80) {
+      setScrollNav(true);
+    } else {
+      setScrollNav(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeNav);
+  }, []);
+
+  const toggleHome = () => {
+    scroll.scrollToTop();
+  };
+
   return (
     <>
-      <Nav>
+      <Nav scrollNav={scrollNav}>
         <NavbarContainer>
-          <NavLogo to="/">PsychPunks</NavLogo>
+          <NavLogo onClick={toggleHome} to="/">
+            PsychPunks
+          </NavLogo>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
           <NavMenu>
             <NavItem>
-              <NavLinks to="about">About</NavLinks>
+              <NavLinks
+                to="about"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+                offset={-80}
+              >
+                About
+              </NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="team">Team</NavLinks>
+              <NavLinks
+                to="roadmap"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+                offset={-80}
+              >
+                Roadmap
+              </NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="contact">Contact</NavLinks>
+              <NavLinks
+                to="dao"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+                offset={-80}
+              >
+                DAO
+              </NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks
+                to="team"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+                offset={-80}
+              >
+                Team
+              </NavLinks>
             </NavItem>
           </NavMenu>
           <NavBtn>
             <NavBtnLink onClick={connect}>
-              {active ? <span>Connected</span> : <span>Connect</span>}
+              {active ? (
+                account.substring(0, 3) + "..." + account.substring(39, 43)
+              ) : (
+                <span>Connect</span>
+              )}
             </NavBtnLink>
           </NavBtn>
         </NavbarContainer>

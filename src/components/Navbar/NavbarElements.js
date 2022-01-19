@@ -3,9 +3,9 @@ import { Link as LinkR } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
 
 export const Nav = styled.nav`
-  background: black;
+  background: ${({ scrollNav }) => (scrollNav ? "black" : "transparent")};
   height: 80px;
-  // margin-top: -80px;
+  margin-top: -80px;
   display: flex;
   justify-content: center;
   font-size: 1rem;
@@ -81,7 +81,7 @@ export const NavLinks = styled(LinkS)`
   cursor: pointer;
 
   &.active {
-    border-bottom: 3px solid white;
+    border-bottom: 1px solid black;
   }
   &:hover {
     transition: all 0.5s ease-in-out;
@@ -91,6 +91,7 @@ export const NavLinks = styled(LinkS)`
 `;
 
 export const NavBtn = styled.nav`
+  font-family: Retro Gaming;
   display: flex;
   align-items: center;
 
@@ -100,7 +101,7 @@ export const NavBtn = styled.nav`
 `;
 
 export const NavBtnLink = styled.button`
-  border-radius: 50px;
+  border-radius: 15px;
   background: white;
   white-space: nowrap;
   padding: 10px 22px;
