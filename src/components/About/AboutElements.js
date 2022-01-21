@@ -11,13 +11,17 @@ export const InfoContrainer = styled.div`
 export const InfoWrapper = styled.div`
   display: flex;
   z-index: 1;
-  height: 1250px;
+  height: 1000px;
   width: 100%;
   max-width: 1400px;
   margin-right: auto;
   margin-left: auto;
   padding: 0 24px;
   justify-content: center;
+
+  @media screen and (max-width: 768px) {
+    height: 1250px;
+  }
 `;
 
 export const InfoRow = styled.div`

@@ -19,18 +19,18 @@ const Team = () => {
       <TeamWrapper>
         <TeamCard>
           <TeamIcon src={Icon1} />
-          <TeamH2></TeamH2>
-          <TeamP>TeamP</TeamP>
+          <TeamH2>Quickscope</TeamH2>
+          <TeamP>Marketing</TeamP>
         </TeamCard>
         <TeamCard>
           <TeamIcon src={Icon2} />
-          <TeamH2>TeamH2</TeamH2>
-          <TeamP>testP</TeamP>
+          <TeamH2>DEEErab</TeamH2>
+          <TeamP>Developer</TeamP>
         </TeamCard>
         <TeamCard>
           <TeamIcon src={Icon3} />
-          <TeamH2>TeamH2</TeamH2>
-          <TeamP>TeamP</TeamP>
+          <TeamH2>Trwn</TeamH2>
+          <TeamP>Developer</TeamP>
         </TeamCard>
       </TeamWrapper>
     </TeamContainer>
