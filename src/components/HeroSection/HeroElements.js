@@ -91,21 +91,23 @@ export const HeroBtnWrapper = styled.div`
 `;
 
 export const ArrowForward = styled(MdArrowForward)`
+  color: white;
   margin-left: 8px;
   font-size: 20px;
 `;
 
 export const ArrowRight = styled(MdKeyboardArrowRight)`
+  color: black;
   margin-left: 8px;
   font-size: 20px;
 `;
 
 export const Button = styled.button`
   border-radius: 10px;
-  background: black;
+  background: white;
   white-space: nowrap;
   padding: 12px 30px;
-  color: white;
+  color: black;
   font-size: 16px;
   outline: none;
   border: none;
@@ -116,8 +118,10 @@ export const Button = styled.button`
   transition: all 0.2s ease-in-out;
 
   &:hover {
+    color: white;
     transition: all 0.2s ease-in-out;
-    background: purple;
+    background: #3f5c64;
+    border: 2px solid white;
   }
 `;
 

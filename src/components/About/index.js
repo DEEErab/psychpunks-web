@@ -37,7 +37,7 @@ const about = () => {
                   psychedelic research. <br></br>
                   <br></br>PsychPunks are fully unique and diverse additions to
                   the Punkverse. Inspired by the great AltPunks that came before
-                  us, our aim is to be the most uni que and mission-driven Punk
+                  us, our aim is to be the most unique and mission-driven Punk
                   derivative - the ultimate AltPunk and a homage to all Punk
                   derivatives.
                 </Subtitle>
@@ -49,7 +49,7 @@ const about = () => {
                     spy={true}
                     offset={-80}
                   >
-                    Get a psychpunk
+                    Get a Psychpunk
                   </HomeButton>
                 </BtnWrap>
               </TextWrapper>

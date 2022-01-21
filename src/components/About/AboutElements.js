@@ -11,9 +11,9 @@ export const InfoContrainer = styled.div`
 export const InfoWrapper = styled.div`
   display: flex;
   z-index: 1;
-  height: 1000px;
+  height: 1250px;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1400px;
   margin-right: auto;
   margin-left: auto;
   padding: 0 24px;
@@ -23,7 +23,7 @@ export const InfoWrapper = styled.div`
 export const InfoRow = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 200px;
   align-items: center;
 
   @media screen and (max-width: 768px) {
@@ -41,7 +41,7 @@ export const Column2 = styled.div`
   padding: 0 15px;
 `;
 export const TextWrapper = styled.div`
-  max-width: 540px;
+  max-width: 600px;
   padding-top: 0;
   padding-bottom: 60px;
 `;
@@ -68,10 +68,10 @@ export const Heading = styled.h1`
 `;
 
 export const Subtitle = styled.p`
-  max-width: 440px;
+  max-width: 500px;
   margin-bottom: 35px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 28px;
+  line-height: 30px;
   color: white;
 `;
 

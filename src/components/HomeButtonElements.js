@@ -7,7 +7,7 @@ export const HomeButton = styled(Link)`
   white-space: nowrap;
   padding: 14px 48px;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   outline: none;
   border: none;
   cursor: pointer;
@@ -19,5 +19,6 @@ export const HomeButton = styled(Link)`
   &:hover {
     transition: all 0.2s ease-in-out;
     background: #3f5c64;
+    border: 2px solid white;
   }
 `;
