@@ -1,7 +1,7 @@
 import React from "react";
 import { HomeButton } from "../HomeButtonElements";
 import { animateScroll as scroll } from "react-scroll";
-import img from "../../images/1.png";
+import img from "../../images/1.gif";
 import {
   InfoContrainer,
   InfoWrapper,

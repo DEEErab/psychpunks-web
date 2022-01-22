@@ -1,10 +1,11 @@
 import React from "react";
+import { ImageWrapper, Image } from "./RoadmapElements";
 
 const roadMap = () => {
   return (
-    <div id="roadmap">
-      <h1>roadmap</h1>
-    </div>
+    <ImageWrapper id="roadmap">
+      <Image></Image>
+    </ImageWrapper>
   );
 };
 
