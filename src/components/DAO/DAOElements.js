@@ -7,7 +7,7 @@ export const DaoContainer = styled.div`
   height: 1000px;
   position: relative;
   z-index: 1;
-  background-color: #728d88;
+  background-color: #bd7dcd;
 `;
 
 export const DaoContent = styled.div`

@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { Link } from "react-scroll";
 
-export const HomeButton = styled(Link)`
+export const HomeButton = styled.button`
   border-radius: 50px;
   background: #253539;
   white-space: nowrap;
