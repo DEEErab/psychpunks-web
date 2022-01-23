@@ -29,6 +29,7 @@ export const NavbarContainer = styled.div`
 `;
 
 export const NavLogo = styled(LinkR)`
+  font-family: dogica, arial;
   color: white;
   justify-self: flex-start;
   cursor: pointer;
@@ -36,8 +37,8 @@ export const NavLogo = styled(LinkR)`
   display: flex;
   align-items: center;
   margin-left: 24px;
-  font-weight: bold;
   text-decoration: none;
+  text-shadow: -2px 3px black;
 `;
 
 export const MobileIcon = styled.div`
@@ -110,7 +111,6 @@ export const NavBtnLink = styled.button`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
-  border: none;
 
   &:hover {
     transition: all 0.2s ease-in-out;

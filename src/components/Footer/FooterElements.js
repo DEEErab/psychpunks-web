@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const FooterContainer = styled.footer`
   background-color: black;
@@ -31,7 +32,7 @@ export const SocialMediaWrap = styled.div`
   }
 `;
 
-export const SocialLogo = styled.button`
+export const SocialLogo = styled(Link)`
   color: white;
   justify-self: start;
   cursor: pointer;
@@ -41,13 +42,11 @@ export const SocialLogo = styled.button`
   align-items: center;
   margin-bottom: 16px;
   font-weight: bold;
-  background: black;
-  border: none;
 `;
 
 export const WebsiteRights = styled.small`
   color: white;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 `;
 
 export const SocialIcons = styled.div`
@@ -64,11 +63,4 @@ export const SocialIconsLink = styled.a`
 
 export const IconImg = styled.img`
   width: 24px;
-`;
-
-export const ContractAddress = styled.p`
-  color: white;
-  display: flex;
-  font-size: 12px;
-  justify-content: center;
 `;

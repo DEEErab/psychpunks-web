@@ -53,6 +53,7 @@ export const TextWrapper = styled.div`
 `;
 
 export const TopLine = styled.p`
+  text-shadow: -2px 3px black;
   color: white;
   font-size: 16px;
   line-height: 16px;
@@ -62,6 +63,7 @@ export const TopLine = styled.p`
   margin-bottom: 16px;
 `;
 export const Heading = styled.h1`
+  text-shadow: -2px 3px black;
   margin-bottom: 24px;
   font-size: 48;
   line-height: 1.1;

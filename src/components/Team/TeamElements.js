@@ -6,7 +6,7 @@ export const TeamContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #75918b;
+  background: #8ccc7c;
 
   @media screen and (max-width: 768px) {
     height: 1400px;
@@ -36,14 +36,13 @@ export const TeamWrapper = styled.div`
   }
 `;
 
-export const TeamCard = styled.a`
-  background: #4b2f2f;
+export const TeamCard = styled.div`
+  background: #728e89;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   border-radius: 10px;
-  border: 2px solid white;
   max-height: 340px;
   padding: 80px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);

@@ -17,17 +17,17 @@ const Team = () => {
     <TeamContainer id="team">
       <TeamH1>Our Team</TeamH1>
       <TeamWrapper>
-        <TeamCard href="https://twitter.com/quickscopeNFT" target="_blank">
+        <TeamCard>
           <TeamIcon src={Icon1} />
           <TeamH2>Quickscope</TeamH2>
           <TeamP>Marketing</TeamP>
         </TeamCard>
-        <TeamCard href="https://twitter.com/DEEErab" target="_blank">
+        <TeamCard>
           <TeamIcon src={Icon2} />
           <TeamH2>DEEErab</TeamH2>
           <TeamP>Developer</TeamP>
         </TeamCard>
-        <TeamCard href="https://twitter.com/trwn__" target="_blank">
+        <TeamCard>
           <TeamIcon src={Icon3} />
           <TeamH2>Trwn</TeamH2>
           <TeamP>Developer</TeamP>

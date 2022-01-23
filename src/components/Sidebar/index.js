@@ -13,7 +13,7 @@ import { useWeb3React } from "@web3-react/core";
 import { injected } from "../Wallet/connectors";
 
 const Sidebar = ({ isOpen, toggle }) => {
-  const { active, activate, account } = useWeb3React();
+  const { active, activate } = useWeb3React();
 
   // connect web3 wallet
   const connect = async () => {
@@ -34,23 +34,13 @@ const Sidebar = ({ isOpen, toggle }) => {
           <SidebarLink to="about" onClick={toggle}>
             About
           </SidebarLink>
-          <SidebarLink to="roadmap" offset={-100} onClick={toggle}>
-            Roadmap
-          </SidebarLink>
-          <SidebarLink to="dao" onClick={toggle}>
-            DAO
-          </SidebarLink>
           <SidebarLink to="team" onClick={toggle}>
             Team
           </SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
           <SidebarRoute onClick={connect}>
-            {active ? (
-              account.substring(0, 3) + "..." + account.substring(39, 43)
-            ) : (
-              <span>Connect</span>
-            )}
+            {active ? <span>Connected</span> : <span>Connect</span>}
           </SidebarRoute>
         </SideBtnWrap>
       </SidebarWrapper>

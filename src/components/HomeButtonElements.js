@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { Link } from "react-scroll";
 
-export const HomeButton = styled.button`
+export const HomeButton = styled(Link)`
   border-radius: 50px;
   background: #253539;
   white-space: nowrap;
@@ -14,6 +15,7 @@ export const HomeButton = styled.button`
   justify-content: center;
   align-items: center;
   transition: all 0.2s ease-in-out;
+  box-shadow: -2px 3px black;
 
   &:hover {
     transition: all 0.2s ease-in-out;

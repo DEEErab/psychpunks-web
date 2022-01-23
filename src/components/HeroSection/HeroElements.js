@@ -54,9 +54,11 @@ export const HeroContent = styled.div`
 `;
 
 export const HeroH1 = styled.h1`
+  font-family: dogica, arial;
   color: white;
   font-size: 48px;
   text-align: center;
+  text-shadow: -2px 3px black;
 
   @media screen and (max-width: 768px) {
     font-size: 40px;
@@ -68,6 +70,7 @@ export const HeroH1 = styled.h1`
 `;
 
 export const HeroP = styled.p`
+  text-shadow: -1px 2px black;
   margin-top: 24px;
   color: white;
   font-size: 24px;

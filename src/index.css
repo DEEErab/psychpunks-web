@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@font-face {
+  font-family: "dogica";
+  src: local("dogica"), url(./fonts/dogica.ttf) format("truetype");
+}
