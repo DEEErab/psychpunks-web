@@ -1,6 +1,7 @@
 import React from "react";
 import { FaTwitter, FaDiscord } from "react-icons/fa";
 import openSea from "../../images/opensea.png";
+import { animateScroll as scroll } from "react-scroll";
 import {
   FooterContainer,
   FooterWrap,
@@ -11,15 +12,20 @@ import {
   SocialIcons,
   SocialIconsLink,
   IconImg,
+  ContractAddress,
 } from "./FooterElements";
 
 const Footer = () => {
+  const toggleHome = () => {
+    scroll.scrollToTop();
+  };
+
   return (
     <FooterContainer>
       <FooterWrap>
         <SocialMedia>
           <SocialMediaWrap>
-            <SocialLogo to="home">PsychPunks</SocialLogo>
+            <SocialLogo onClick={toggleHome}>PsychPunks</SocialLogo>
             <WebsiteRights>
               PsychPunks&copy; 2022, All rights reserved
             </WebsiteRights>
@@ -47,6 +53,9 @@ const Footer = () => {
               </SocialIconsLink>
             </SocialIcons>
           </SocialMediaWrap>
+          <ContractAddress>
+            Contract address: 0x26582b17c733bbc60fa41c833c9d814fc9cc4b03
+          </ContractAddress>
         </SocialMedia>
       </FooterWrap>
     </FooterContainer>

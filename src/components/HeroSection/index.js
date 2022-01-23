@@ -16,7 +16,7 @@ import {
   Input,
 } from "./HeroElements";
 
-const contractAddress = "0xab89D55822768F9eA1A6FFbe3f0eE10D676cA752"; // rinkby testnet address
+const contractAddress = "0x26582b17c733bbc60fa41c833c9d814fc9cc4b03";
 const abi = contract.abi;
 
 const HeroSection = () => {
