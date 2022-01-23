@@ -1,60 +1,49 @@
 import React from "react";
 import { FaTwitter, FaDiscord } from "react-icons/fa";
+import openSea from "../../images/opensea.png";
 import {
   FooterContainer,
   FooterWrap,
-  FooterLinksContainer,
-  FooterLinksWrapper,
-  FooterLinkTitle,
-  FooterLinkItems,
-  FooterLink,
   SocialMedia,
   SocialMediaWrap,
   SocialLogo,
   WebsiteRights,
   SocialIcons,
   SocialIconsLink,
+  IconImg,
 } from "./FooterElements";
 
 const Footer = () => {
   return (
     <FooterContainer>
       <FooterWrap>
-        <FooterLinksContainer>
-          <FooterLinksWrapper>
-            <FooterLinkItems>
-              <FooterLinkTitle> About us </FooterLinkTitle>
-              <FooterLink to="/Home"> Mint </FooterLink>
-              <FooterLink to="/Home"> OpenSea </FooterLink>
-              <FooterLink to="/Home"> Twitter </FooterLink>
-              <FooterLink to="/Home"> Discord </FooterLink>
-            </FooterLinkItems>
-          </FooterLinksWrapper>
-          <FooterLinksWrapper>
-            <FooterLinkItems>
-              <FooterLinkTitle> About us </FooterLinkTitle>
-              <FooterLink to="/Home"> Mint </FooterLink>
-              <FooterLink to="/Home"> OpenSea </FooterLink>
-              <FooterLink to="/Home"> Twitter </FooterLink>
-              <FooterLink to="/Home"> Discord </FooterLink>
-            </FooterLinkItems>
-          </FooterLinksWrapper>
-        </FooterLinksContainer>
         <SocialMedia>
           <SocialMediaWrap>
-            <SocialLogo to="">PsychPunks</SocialLogo>
+            <SocialLogo to="home">PsychPunks</SocialLogo>
             <WebsiteRights>
               PsychPunks&copy; 2022, All rights reserved
             </WebsiteRights>
             <SocialIcons>
-              <SocialIconsLink href="/" target="_blank" aria-label="Twitter">
+              <SocialIconsLink
+                href="https://twitter.com/psychpunks"
+                target="_blank"
+                aria-label="Twitter"
+              >
                 <FaTwitter />
               </SocialIconsLink>
-              <SocialIconsLink href="/" target="_blank" aria-label="Discord">
+              <SocialIconsLink
+                href="https://discord.gg/XfxabdJFsA"
+                target="_blank"
+                aria-label="Discord"
+              >
                 <FaDiscord />
               </SocialIconsLink>
-              <SocialIconsLink href="/" target="_blank" aria-label="OpenSea">
-                <FaTwitter />
+              <SocialIconsLink
+                href="https://opensea.io/collection/psych-punks"
+                target="_blank"
+                aria-label="OpenSea"
+              >
+                <IconImg src={openSea}></IconImg>
               </SocialIconsLink>
             </SocialIcons>
           </SocialMediaWrap>

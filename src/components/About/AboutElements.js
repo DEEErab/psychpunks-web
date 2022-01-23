@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const InfoContrainer = styled.div`
   background: #bd7dcd;
+  display: flex;
 
   @media screen and (max-width: 768px) {
     padding: 100px 0;
@@ -32,6 +33,7 @@ export const InfoRow = styled.div`
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
+    grid-gap: 50px;
   }
 `;
 

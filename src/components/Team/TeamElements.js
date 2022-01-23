@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const TeamContainer = styled.div`
-  height: 800px;
+  height: 1000px;
   display: flex;
   flex-direction: column;
   justify-content: center;
