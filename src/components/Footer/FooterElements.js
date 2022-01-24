@@ -32,6 +32,7 @@ export const SocialMediaWrap = styled.div`
 `;
 
 export const SocialLogo = styled.button`
+  font-family: "PressStart2P";
   color: white;
   justify-self: start;
   cursor: pointer;

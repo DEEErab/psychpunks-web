@@ -117,12 +117,14 @@ export const TeamH1 = styled.h1`
 `;
 
 export const TeamH2 = styled.h2`
+  text-shadow: -1px 1px black;
   font-size: 1.5rem;
   margin-bottom: 10px;
   color: white;
 `;
 
 export const TeamP = styled.p`
+  text-shadow: -1px 1px black;
   font-size: 1rem;
   text-align: center;
   color: white;

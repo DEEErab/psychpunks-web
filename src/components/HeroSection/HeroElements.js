@@ -53,20 +53,11 @@ export const HeroContent = styled.div`
   align-items: center;
 `;
 
-export const HeroH1 = styled.h1`
-  font-family: PressStart2P;
-  color: white;
-  font-size: 42px;
-  text-align: center;
-  text-shadow: -2px 3px black;
-
-  @media screen and (max-width: 768px) {
-    font-size: 40px;
-  }
-
-  @media screen and (max-width: 480px) {
-    font-size: 32px;
-  }
+export const HeroLogo = styled.img`
+  height: 100px;
+  width: auto;
+  align-self: center;
+  margin-bottom: -20px;
 `;
 
 export const HeroP = styled.p`
@@ -75,6 +66,23 @@ export const HeroP = styled.p`
   font-size: 24px;
   text-align: center;
   max-width: 600px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 18px;
+  }
+`;
+
+export const HeroP1 = styled.p`
+  margin-top: 10px;
+  color: white;
+  font-size: 28px;
+  text-align: center;
+  max-width: 600px;
+  text-shadow: 1px 1px black;
 
   @media screen and (max-width: 768px) {
     font-size: 24px;

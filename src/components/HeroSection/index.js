@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import contract from "../../contracts/psychpunks.json";
 import img from "../../images/bg.png";
+import logo from "../../images/logo.png";
 import {
   HeroContainer,
   HeroBg,
   VideoBg,
   HeroContent,
-  HeroH1,
+  HeroLogo,
   HeroP,
+  HeroP1,
   HeroBtnWrapper,
   ArrowForward,
   ArrowRight,
@@ -80,11 +82,12 @@ const HeroSection = () => {
         <VideoBg autoPlay loop muted src={img} type="img" />
       </HeroBg>
       <HeroContent>
-        <HeroH1>PsychPunks</HeroH1>
+        <HeroLogo src={logo}></HeroLogo>
         <HeroP>
           Mint a psychpunks today! And still have a change to get a Psychpunks
           hoodie!
         </HeroP>
+        <HeroP1>0.042 Ξ</HeroP1>
         <HeroBtnWrapper>
           <Button
             onMouseEnter={onHover}

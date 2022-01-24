@@ -7,11 +7,13 @@ export const ImageWrapper = styled.div`
   margin-right: auto;
   margin-left: auto;
   justify-content: center;
-  background-color: #75918b;
+  background-color: #587f8a;
   overflow: hidden;
+  padding-bottom: 25px;
 
   @media screen and (max-width: 768px) {
     height: 600px;
+    padding-right: 10px;
   }
 `;
 
