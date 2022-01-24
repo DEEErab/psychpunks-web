@@ -36,9 +36,50 @@ export const TeamWrapper = styled.div`
   }
 `;
 
-export const TeamCard = styled.a`
-  background: url(../../images/TeamBg1.png);
+export const TeamCard1 = styled.a`
+  background: url("https://i.ibb.co/cJDB3DC/10.png");
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10px;
+  border: 2px solid white;
+  max-height: 340px;
+  padding: 80px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-outs;
 
+  &:hover {
+    transform: scale(1.02);
+    transform: all 0.2s ease-in-outs;
+    cursor: pointer;
+  }
+`;
+
+export const TeamCard2 = styled.a`
+  background: url(https://i.ibb.co/3BmptHp/15.png);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10px;
+  border: 2px solid white;
+  max-height: 340px;
+  padding: 80px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-outs;
+
+  &:hover {
+    transform: scale(1.02);
+    transform: all 0.2s ease-in-outs;
+    cursor: pointer;
+  }
+`;
+
+export const TeamCard3 = styled.a`
+  background: url("https://i.ibb.co/qnRsP3W/11.png");
   text-decoration: none;
   display: flex;
   flex-direction: column;
