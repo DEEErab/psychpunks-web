@@ -1,7 +1,8 @@
 import React from "react";
-import Icon1 from "../../images/4.png";
-import Icon2 from "../../images/5.png";
-import Icon3 from "../../images/6.png";
+import Icon1 from "../../images/quickscope.png";
+import Icon2 from "../../images/deeerab.png";
+import Icon3 from "../../images/trwn.png";
+
 import {
   TeamContainer,
   TeamH1,
@@ -22,11 +23,13 @@ const Team = () => {
           <TeamH2>Quickscope</TeamH2>
           <TeamP>Marketing</TeamP>
         </TeamCard>
+
         <TeamCard href="https://twitter.com/DEEErab" target="_blank">
           <TeamIcon src={Icon2} />
           <TeamH2>DEEErab</TeamH2>
           <TeamP>Developer</TeamP>
         </TeamCard>
+
         <TeamCard href="https://twitter.com/trwn__" target="_blank">
           <TeamIcon src={Icon3} />
           <TeamH2>Trwn</TeamH2>

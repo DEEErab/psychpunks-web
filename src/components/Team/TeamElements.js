@@ -37,7 +37,9 @@ export const TeamWrapper = styled.div`
 `;
 
 export const TeamCard = styled.a`
-  background: #4b2f2f;
+  background: url(../../images/TeamBg1.png);
+
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -74,7 +76,7 @@ export const TeamH1 = styled.h1`
 `;
 
 export const TeamH2 = styled.h2`
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin-bottom: 10px;
   color: white;
 `;

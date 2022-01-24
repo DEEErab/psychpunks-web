@@ -54,9 +54,11 @@ export const HeroContent = styled.div`
 `;
 
 export const HeroH1 = styled.h1`
+  font-family: PressStart2P;
   color: white;
-  font-size: 48px;
+  font-size: 42px;
   text-align: center;
+  text-shadow: -2px 3px black;
 
   @media screen and (max-width: 768px) {
     font-size: 40px;

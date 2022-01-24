@@ -29,15 +29,17 @@ export const NavbarContainer = styled.div`
 `;
 
 export const NavLogo = styled(LinkR)`
+  font-family: PressStart2P;
   color: white;
   justify-self: flex-start;
   cursor: pointer;
   font-size: 1.5rem;
   display: flex;
   align-items: center;
-  margin-left: 24px;
+  margin-left: 20px;
   font-weight: bold;
   text-decoration: none;
+  text-shadow: -2px 3px black;
 `;
 
 export const MobileIcon = styled.div`

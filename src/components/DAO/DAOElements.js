@@ -24,6 +24,7 @@ export const DaoH1 = styled.h1`
   color: white;
   font-size: 48px;
   text-align: center;
+  text-shadow: -2px 3px black;
 
   @media screen and (max-width: 768px) {
     font-size: 40px;
