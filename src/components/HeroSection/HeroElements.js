@@ -35,12 +35,17 @@ export const HeroBg = styled.div`
   overflow: hidden;
 `;
 
-export const VideoBg = styled.img`
+export const ImageBg = styled.img`
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
   background: pink;
+`;
+
+export const HeroDiv = styled.div`
+  color: white;
+  padding-top: 10px;
 `;
 
 export const HeroContent = styled.div`
@@ -58,6 +63,10 @@ export const HeroLogo = styled.img`
   width: auto;
   align-self: center;
   margin-bottom: -20px;
+
+  @media screen and (max-width: 768px) {
+    height: 65px;
+  }
 `;
 
 export const HeroP = styled.p`

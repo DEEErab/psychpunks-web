@@ -38,7 +38,7 @@ const Sidebar = ({ isOpen, toggle }) => {
             Roadmap
           </SidebarLink>
           <SidebarLink to="dao" onClick={toggle}>
-            DAO
+            Treasury
           </SidebarLink>
           <SidebarLink to="team" onClick={toggle}>
             Team

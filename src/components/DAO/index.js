@@ -17,7 +17,7 @@ const DAO = () => {
   return (
     <DaoContainer id="dao">
       <DaoContent>
-        <DaoH1>PsychPunks DAO</DaoH1>
+        <DaoH1>PsychPunks Treasury</DaoH1>
         <DaoP>
           Each PsychPunk NFT is also a governance token, essentially a voting
           ticket, for the PsychPunks treasury. This fund will be used
@@ -34,7 +34,7 @@ const DAO = () => {
             spy={true}
             offset={-80}
           >
-            Join the DAO!
+            Join Us!
           </HomeButton>
         </DaoBtnWrapper>
       </DaoContent>

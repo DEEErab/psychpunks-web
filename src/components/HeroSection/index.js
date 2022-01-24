@@ -6,7 +6,7 @@ import logo from "../../images/logo.png";
 import {
   HeroContainer,
   HeroBg,
-  VideoBg,
+  ImageBg,
   HeroContent,
   HeroLogo,
   HeroP,
@@ -16,15 +16,17 @@ import {
   ArrowRight,
   Button,
   Input,
+  HeroDiv,
 } from "./HeroElements";
 
-const contractAddress = "0x26582b17c733bbc60fa41c833c9d814fc9cc4b03";
+const contractAddress = "0xab89D55822768F9eA1A6FFbe3f0eE10D676cA752";
 const abi = contract.abi;
 
 const HeroSection = () => {
   const [hover, setHover] = useState(false);
   const [currentAccount, setCurrentAccount] = useState(null);
   const [amount, setAmount] = useState("");
+  const [feedback, setFeedback] = useState("");
 
   const onHover = () => {
     setHover(!hover);
@@ -36,7 +38,7 @@ const HeroSection = () => {
       console.log("Make sure you have Metamask installed!");
       return;
     } else {
-      console.log("Wallet exists! We're ready to go!");
+      console.log("Metamask is isntalled! We're ready to go!");
     }
 
     const accounts = await ethereum.request({ method: "eth_accounts" });
@@ -46,7 +48,7 @@ const HeroSection = () => {
       console.log("Found an authorized account:", account);
       setCurrentAccount(account);
     } else {
-      console.log("No authorized accounts.");
+      console.log("no authorized accounts");
     }
   };
 
@@ -61,14 +63,17 @@ const HeroSection = () => {
         const accounts = await ethereum.request({ method: "eth_accounts" });
         let ethAmount = (0.042 * _amount).toString();
 
-        await nftContract.mint(accounts[0], _amount, {
+        const mintNft = await nftContract.mint(accounts[0], _amount, {
           value: ethers.utils.parseEther(ethAmount),
         });
+        setFeedback("Minting your NFT!!!");
+        await mintNft.wait();
+        setFeedback("Finished! Check it out on Opensea!");
       } else {
-        console.log("Ethereum object does not exist");
+        console.log("Ethereum object does not exist!");
       }
     } catch (err) {
-      console.log(err);
+      setFeedback("Not enough ETH!");
     }
   };
 
@@ -79,12 +84,12 @@ const HeroSection = () => {
   return (
     <HeroContainer>
       <HeroBg>
-        <VideoBg autoPlay loop muted src={img} type="img" />
+        <ImageBg autoPlay loop muted src={img} type="img" />
       </HeroBg>
       <HeroContent>
         <HeroLogo src={logo}></HeroLogo>
         <HeroP>
-          Mint a psychpunks today! And still have a change to get a Psychpunks
+          Mint your PsychPunk today! And still have a change to get a Psychpunks
           hoodie!
         </HeroP>
         <HeroP1>0.042 Ξ</HeroP1>
@@ -112,6 +117,9 @@ const HeroSection = () => {
             onChange={(e) => setAmount(e.target.value)}
           />
         </HeroBtnWrapper>
+        <HeroDiv value={feedback} onChange={(e) => setFeedback(e.target.value)}>
+          {feedback}
+        </HeroDiv>
       </HeroContent>
     </HeroContainer>
   );

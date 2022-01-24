@@ -10,12 +10,12 @@ export const FooterWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 1100px;
+  max-width: 1800px;
   margin: 0 auto;
 `;
 
 export const SocialMedia = styled.section`
-  max-width: 1000px;
+  max-width: 1600px;
   width: 100%;
 `;
 
@@ -23,7 +23,7 @@ export const SocialMediaWrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1100px;
+  max-width: 1300px;
   margin: 40px auto 0 auto;
 
   @media screen and (max-width: 820px) {
@@ -46,11 +46,6 @@ export const SocialLogo = styled.button`
   border: none;
 `;
 
-export const WebsiteRights = styled.small`
-  color: white;
-  margin-bottom: 32px;
-`;
-
 export const SocialIcons = styled.div`
   display: flex;
   justify-content: space-between;
@@ -67,9 +62,16 @@ export const IconImg = styled.img`
   width: 24px;
 `;
 
-export const ContractAddress = styled.p`
+export const Info = styled.p`
   color: white;
   display: flex;
   font-size: 12px;
   justify-content: center;
+  margin-bottom: 32px;
+  text-align: center;
+  line-height: 30px;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 10px;
+  }
 `;

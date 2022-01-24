@@ -16,22 +16,12 @@ import { useWeb3React } from "@web3-react/core";
 import { injected } from "../Wallet/connectors";
 
 export const Navbar = ({ toggle }) => {
-  const { active, activate, deactivate, account } = useWeb3React();
+  const { active, activate, account } = useWeb3React();
   const [scrollNav, setScrollNav] = useState(false);
 
-  // connect web3 wallet
   const connect = async () => {
     try {
       await activate(injected);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  // disconnect web3 wallet
-  const disconnect = async () => {
-    try {
-      deactivate();
     } catch (e) {
       console.log(e);
     }
@@ -97,7 +87,7 @@ export const Navbar = ({ toggle }) => {
                 exact="true"
                 offset={-80}
               >
-                DAO
+                Treasury
               </NavLinks>
             </NavItem>
             <NavItem>
