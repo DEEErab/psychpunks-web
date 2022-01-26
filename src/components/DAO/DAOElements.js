@@ -4,7 +4,7 @@ export const DaoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 1000px;
+  height: 800px;
   position: relative;
   z-index: 1;
   background-color: #4c8145;

@@ -88,10 +88,7 @@ const HeroSection = () => {
       </HeroBg>
       <HeroContent>
         <HeroLogo src={logo}></HeroLogo>
-        <HeroP>
-          Mint your PsychPunk today! And still have a change to get a Psychpunks
-          hoodie!
-        </HeroP>
+        <HeroP>Mint your PsychPunk today!</HeroP>
         <HeroP1>0.042 Ξ</HeroP1>
         <HeroBtnWrapper>
           <Button
