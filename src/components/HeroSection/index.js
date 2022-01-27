@@ -31,6 +31,7 @@ const HeroSection = () => {
   const onHover = () => {
     setHover(!hover);
   };
+
   const checkIfWalletIsConnected = async () => {
     const { ethereum } = window;
 
