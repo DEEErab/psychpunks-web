@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   SidebarContainer,
   Icon,
@@ -14,6 +14,8 @@ import { injected } from "../Wallet/connectors";
 
 const Sidebar = ({ isOpen, toggle }) => {
   const { active, activate, account } = useWeb3React();
+  const [connected, setConnected] = useState("Connect");
+  const [currentAccount, setCurrentAccount] = useState(null);
 
   // connect web3 wallet
   const connect = async () => {
@@ -23,6 +25,29 @@ const Sidebar = ({ isOpen, toggle }) => {
       console.log(e);
     }
   };
+
+  const checkIfWalletIsConnected = async () => {
+    const { ethereum } = window;
+
+    if (!ethereum) {
+      window.alert("Make sure you have Metamask installed!");
+      return;
+    }
+
+    const accounts = await ethereum.request({ method: "eth_accounts" });
+
+    if (accounts.length !== 0) {
+      const account = accounts[0];
+      setConnected(account.substr(0, 3) + "..." + account.substr(39, 43));
+      setCurrentAccount(account);
+    } else {
+      console.log("no authorized accounts");
+    }
+  };
+
+  useEffect(() => {
+    checkIfWalletIsConnected();
+  }, []);
 
   return (
     <SidebarContainer isOpen={isOpen} onClick={toggle}>
@@ -45,11 +70,15 @@ const Sidebar = ({ isOpen, toggle }) => {
           </SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
-          <SidebarRoute onClick={connect}>
+          <SidebarRoute
+            onClick={connect}
+            value={connected}
+            onChange={(e) => setConnected(e.target.value)}
+          >
             {active ? (
               account.substring(0, 3) + "..." + account.substring(39, 43)
             ) : (
-              <span>Connect</span>
+              <span>{connected}</span>
             )}
           </SidebarRoute>
         </SideBtnWrap>
