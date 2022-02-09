@@ -19,7 +19,7 @@ import {
   HeroDiv,
 } from "./HeroElements";
 
-const contractAddress = "0xab89D55822768F9eA1A6FFbe3f0eE10D676cA752";
+const contractAddress = "0x26582b17c733bbc60fa41c833c9d814fc9cc4b03";
 const abi = contract.abi;
 
 const HeroSection = () => {
@@ -27,6 +27,7 @@ const HeroSection = () => {
   const [currentAccount, setCurrentAccount] = useState(null);
   const [amount, setAmount] = useState("");
   const [feedback, setFeedback] = useState("");
+  const [supply, setSupply] = useState("0");
 
   const onHover = () => {
     setHover(!hover);
@@ -77,8 +78,27 @@ const HeroSection = () => {
     }
   };
 
+  const supplyLeft = async () => {
+    try {
+      const { ethereum } = window;
+
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const nftContract = new ethers.Contract(contractAddress, abi, provider);
+        const bigNumber = await nftContract.totalSupply();
+
+        setSupply(bigNumber.toString());
+      } else {
+        console.log("Ethereum object does not exist");
+      }
+    } catch (err) {
+      return;
+    }
+  };
+
   useEffect(() => {
     checkIfWalletIsConnected();
+    supplyLeft();
   }, []);
 
   return (
@@ -90,11 +110,11 @@ const HeroSection = () => {
         <HeroLogo src={logo}></HeroLogo>
         <HeroP>Mint your PsychPunk today!</HeroP>
         <HeroP1>0.042 Ξ</HeroP1>
+        <HeroP1>{supply}/10,000</HeroP1>
         <HeroBtnWrapper>
           <Button
             onMouseEnter={onHover}
             onMouseLeave={onHover}
-            onClick={mintNft}
             primary="true"
             dark="true"
             onClick={(e) => {
@@ -114,6 +134,7 @@ const HeroSection = () => {
             onChange={(e) => setAmount(e.target.value)}
           />
         </HeroBtnWrapper>
+        <HeroDiv></HeroDiv>
         <HeroDiv value={feedback} onChange={(e) => setFeedback(e.target.value)}>
           {feedback}
         </HeroDiv>
