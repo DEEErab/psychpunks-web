@@ -17,7 +17,9 @@ import { injected } from "../Wallet/connectors";
 
 export const Navbar = ({ toggle }) => {
   const { active, activate, account } = useWeb3React();
+  const [currentAccount, setCurrentAccount] = useState(null);
   const [scrollNav, setScrollNav] = useState(false);
+  const [connected, setConnected] = useState("Connect");
 
   const connect = async () => {
     try {
@@ -35,8 +37,31 @@ export const Navbar = ({ toggle }) => {
     }
   };
 
+  const checkIfWalletIsConnected = async () => {
+    const { ethereum } = window;
+
+    if (!ethereum) {
+      window.alert("Make sure you have Metamask installed!");
+      return;
+    }
+
+    const accounts = await ethereum.request({ method: "eth_accounts" });
+
+    if (accounts.length !== 0) {
+      const account = accounts[0];
+      setConnected(account.substr(0, 3) + "..." + account.substr(39, 43));
+      setCurrentAccount(account);
+    } else {
+      console.log("no authorized accounts");
+    }
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", changeNav);
+  }, []);
+
+  useEffect(() => {
+    checkIfWalletIsConnected();
   }, []);
 
   const toggleHome = () => {
@@ -104,11 +129,15 @@ export const Navbar = ({ toggle }) => {
             </NavItem>
           </NavMenu>
           <NavBtn>
-            <NavBtnLink onClick={connect}>
+            <NavBtnLink
+              onClick={connect}
+              value={connected}
+              onChange={(e) => setConnected(e.target.value)}
+            >
               {active ? (
                 account.substring(0, 3) + "..." + account.substring(39, 43)
               ) : (
-                <span>Connect</span>
+                <span>{connected}</span>
               )}
             </NavBtnLink>
           </NavBtn>

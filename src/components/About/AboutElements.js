@@ -81,6 +81,10 @@ export const Subtitle = styled.p`
   font-size: 30px;
   line-height: 34px;
   color: white;
+
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 export const BtnWrap = styled.div`
